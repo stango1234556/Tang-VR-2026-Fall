@@ -11,6 +11,7 @@ export default () => {
             { name: "linefont" , path: "./linefont.js" , public: true },
             { name: "linefont2", path: "./linefont2.js", public: true },
             { name: "buddha"   , path: "./buddha.js"   , public: true },
+            { name: "hw2", path: "./hw2.js", public: true },
       ]
    };
 }
