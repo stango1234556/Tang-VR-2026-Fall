@@ -203,7 +203,8 @@ export const init = async model => {
 
 		return [
 			remoteBall[0] + remoteVel[0] * elapsed,
-			remoteBall[1] + remoteVel[1] * elapsed + .5 * GRAVITY * elapsed * elapsed,
+			remoteBall[1] + remoteVel[1] * elapsed
+				+ .5 * GRAVITY * elapsed * elapsed,
 			remoteBall[2] + remoteVel[2] * elapsed
 		];
 	};
@@ -418,6 +419,7 @@ export const init = async model => {
 			myRole >= 0 &&
 			!pingPongGame.playing &&
 			pingPongGame.winner < 0 &&
+			pingPongGame.owner < 0 &&
 			!servePending
 		) {
 			if (beamHits(hand, START_POS, .14)) {
@@ -569,7 +571,7 @@ export const init = async model => {
 		return [p, v];
 	};
 
-	// The non-owner headset checks its own paddle locally.
+	// Non-owner checks its own paddle
 
 	let checkLocalPaddleHit = now => {
 		if (
@@ -633,7 +635,7 @@ export const init = async model => {
 		}
 	};
 
-	// Ball physics are calculated by the headset that started the rally.
+	// Ball physics
 
 	let updateBallPhysics = (now, dt) => {
 		if (
@@ -710,7 +712,6 @@ export const init = async model => {
 			forceBallSend = true;
 		}
 
-		// The owner only checks its own paddle.
 		let player = pingPongGame.owner;
 		let paddle = pingPongPaddles.pos[player];
 
@@ -759,8 +760,6 @@ export const init = async model => {
 			}
 		}
 
-		// Extra distance gives the remote headset time
-		// to send its paddle-hit message.
 		if (p[2] > NEAR_EDGE + .40) {
 			scorePoint(1, now);
 			return;
@@ -1144,6 +1143,7 @@ export const init = async model => {
 			myRole >= 0 &&
 			!pingPongGame.playing &&
 			pingPongGame.winner < 0 &&
+			pingPongGame.owner < 0 &&
 			!servePending
 		) {
 			startButton
