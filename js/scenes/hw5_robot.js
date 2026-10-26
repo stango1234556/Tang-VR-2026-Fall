@@ -123,9 +123,9 @@ export const init = async model => {
             throw new Error(`couldn't find the jaw in ${mesh.stl}`);
          clay.defineMesh('SO101/' + mesh.stl + '_body', clay.trianglesMesh(body));
          clay.defineMesh('SO101/' + mesh.stl + '_jaw', clay.trianglesMesh(jaw));
-         console.log("[HW5_robot] gripper loaded, both jaws can open");
+         console.log("[hw5_robot] gripper loaded, both jaws can open");
       } catch (err) {
-         console.warn("[HW5_robot] couldn't split the gripper, loading it whole instead:", err);
+         console.warn("[hw5_robot] couldn't split the gripper, loading it whole instead:", err);
          mesh.split = false;
          stl('SO101/' + mesh.stl);
       }

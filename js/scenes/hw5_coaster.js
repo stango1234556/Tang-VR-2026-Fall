@@ -411,7 +411,7 @@ export const init = async model => {
       });
 
       if (cutAt !== null)
-         console.warn(`[HW5_coaster] the track hit the size limit and was cut off at ${cutAt + 1}. ${design.elements[cutAt].type}`);
+         console.warn(`[hw5_coaster] the track hit the size limit and was cut off at ${cutAt + 1}. ${design.elements[cutAt].type}`);
 
       // Brake run, then a smooth curve back into the station so the ride is a full circuit.
       element = design.elements.length;
@@ -1064,7 +1064,7 @@ export const init = async model => {
       } catch (err) {
          if (/timed out/i.test(err.message))
             throw err;
-         console.warn(`[HW5_coaster] ${aiModel} failed (${err.message}), retrying with the default model`);
+         console.warn(`[hw5_coaster] ${aiModel} failed (${err.message}), retrying with the default model`);
          content = await ask(undefined);
       }
       const data = parseJson(content || "");
@@ -1099,11 +1099,11 @@ export const init = async model => {
             problemsPerCandidate: options.map(o => o.problems.length).join(" / "),
          });
          console.table(window.coasterLog);
-         console.log("[HW5_coaster] plan:", d.plan);
-         console.log("[HW5_coaster] design:", d, "problems:", c.problems.map(p => p.text));
+         console.log("[hw5_coaster] plan:", d.plan);
+         console.log("[hw5_coaster] design:", d, "problems:", c.problems.map(p => p.text));
          status = c.problems.length ? `Built ${d.name}, but it has problems. Try Fix.` : `Built ${d.name}. Press Ride!`;
       } catch (err) {
-         console.error("[HW5_coaster] design failed:", err);
+         console.error("[hw5_coaster] design failed:", err);
          status = `Design failed (${String(err.message).substring(0, 60)}).`;
       }
       busy = false;
@@ -1149,14 +1149,14 @@ export const init = async model => {
          else if (proposal.cost < current.cost)
             rejected = true;
       } catch (err) {
-         console.error("[HW5_coaster] AI fix failed:", err);
+         console.error("[hw5_coaster] AI fix failed:", err);
       }
       const afterAI = current.problems.length;
       status = `AI: ${before} -> ${afterAI} problems. Tuning the rest...`;
       const tuned = current.cost > 0 ? await tune(current) : current;
       showCoaster(tuned, coaster.request, coaster.original);
       if (rejected)
-         console.log("[HW5_coaster] the AI's fix was rejected because it removed too much of the original ride");
+         console.log("[hw5_coaster] the AI's fix was rejected because it removed too much of the original ride");
       const after = tuned.problems.length;
       window.coasterLog.push({
          request: feedback ? `fix: ${feedback}` : "fix", name: tuned.design.name, seconds: +((Date.now() - start) / 1000).toFixed(1),
@@ -1301,7 +1301,7 @@ export const init = async model => {
       else
          showCoaster(analyze(sanitizeDesign(EXAMPLE_TRACK)), "the built-in example ride");
    } catch (err) {
-      console.error("[HW5_coaster] couldn't build the coaster:", err);
+      console.error("[hw5_coaster] couldn't build the coaster:", err);
    }
    if (saved.riding && coaster)
       ride(saved.rideS || 0.01);
