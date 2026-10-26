@@ -2,19 +2,6 @@ import * as cg from "../render/core/cg.js";
 import { G2 } from "../util/g2.js";
 import { loadSound, playSoundAtPosition } from "../util/positional-audio.js";
 
-/*
-   COLOR CAPTURE (up to 4 players), based on bouncing.js.
-   Hit balls with your hands or head to turn them your color.
-   When time runs out, whoever owns the most balls wins.
-
-   - Your pedestal: READY button, color picker, and your score.
-   - Middle kiosk: number of balls, round length, and START.
-   - Board above the middle: time left and everyone's score.
-
-   The first player (the master) runs the physics and shares it with everyone.
-   Widget presses are sent to the master as messages.
-*/
-
 const ROOM = 2.4;
 const CEILING = 3;
 const R = 0.15;
