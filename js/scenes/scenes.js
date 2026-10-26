@@ -18,6 +18,9 @@ export default () => {
             { name: "SO101_parts", path: "./SO101_parts.js", public: true },
             { name: "bouncing"   , path: "./bouncing.js"   , public: true },
             { name: "widgets"    , path: "./widgets.js"    , public: true },
+            { name: "controlPanel", path: "./controlPanel.js", public: true },
+            { name: "hw6_colorCapture", path: "./hw6_colorCapture.js", public: true },
+            { name: "hw6_volleyball"  , path: "./hw6_volleyball.js"  , public: true },
       ]
    };
 }
