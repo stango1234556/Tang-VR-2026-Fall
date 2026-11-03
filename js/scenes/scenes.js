@@ -18,6 +18,7 @@ export default () => {
             { name: "SO101_parts", path: "./SO101_parts.js", public: true },
             { name: "bouncing"   , path: "./bouncing.js"   , public: true },
             { name: "widgets"    , path: "./widgets.js"    , public: true },
+            { name: "hw7_cabin"  , path: "./hw7_cabin.js"  , public: true },
       ]
    };
 }
