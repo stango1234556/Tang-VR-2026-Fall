@@ -19,6 +19,7 @@ export default () => {
             { name: "bouncing"   , path: "./bouncing.js"   , public: true },
             { name: "widgets"    , path: "./widgets.js"    , public: true },
             { name: "minime"     , path: "./minime.js"     , public: true },
+            { name: "hw8_cabin"  , path: "./hw8_cabin.js"  , public: true },
       ]
    };
 }
