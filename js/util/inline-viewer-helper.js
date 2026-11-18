@@ -330,6 +330,10 @@ export class InlineViewerHelper {
        return;
     }
     if (window.interactMode == 4) {
+       if (e.keyCode == 32) this._isSpaceKeyDown = false;
+       if (e.key == 'Shift') this._isShiftKeyDown = false;
+       if (e.key == 'Meta') this._isMetaKeyDown = false;
+       if (e.key == 'Control') this._isControlKeyDown = false;
        if (window.keyup)
           window.keyup(e);
        return;

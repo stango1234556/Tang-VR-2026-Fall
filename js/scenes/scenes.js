@@ -21,6 +21,7 @@ export default () => {
             { name: "minime"     , path: "./minime.js"     , public: true },
             { name: "kbdEvents"  , path: "./kbdEvents.js"  , public: true },
             { name: "kbdEvents2" , path: "./kbdEvents2.js" , public: true },
+            { name: "hw9_workspace", path: "./hw9_workspace.js", public: true },
       ]
    };
 }
